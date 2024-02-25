@@ -26,10 +26,10 @@
 <button id="rewindTo"">rewindTo 10sec</button>
 <iframe id="test" width="371" height="209" src="https://frontend-video-dev04.dev.dion.vc/embed/4820690b-015b-45b2-91f2-38a9d5cc8ae8" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
 
-<script>
+<script defer>
     const handlePlay = function() {
       const win = document.querySelector("#test")
-      win.contentWindow.postMessage({ type: 'play' , "*"})
+      win.contentWindow.postMessage({ type: 'play'}, "*")
     }
     const handlePause = function() {
       const win = document.querySelector("#test")
