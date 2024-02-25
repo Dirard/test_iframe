@@ -29,23 +29,23 @@
 <script>
     const handlePlay = function() {
       const win = document.querySelector("#test")
-      win.contentWindow.postMessage({ type: 'play' })
+      win.contentWindow.postMessage({ type: 'play' , "*"})
     }
     const handlePause = function() {
       const win = document.querySelector("#test")
-      win.contentWindow.postMessage({ type: 'pause' })
+      win.contentWindow.postMessage({ type: 'pause' }, "*")
     }
     const handleUnmute = function() {
       const win = document.querySelector("#test")
-      win.contentWindow.postMessage({ type: 'toggleVolume', value: true })
+      win.contentWindow.postMessage({ type: 'toggleVolume', value: true }, "*")
     }
     const handleMute = function() {
       const win = document.querySelector("#test")
-      win.contentWindow.postMessage({ type: 'toggleVolume', value: false })
+      win.contentWindow.postMessage({ type: 'toggleVolume', value: false }, "*")
     }
     const handleRewindTo = function() {
       const win = document.querySelector("#test")
-      win.contentWindow.postMessage({ type: 'rewindTo', value: 10 })
+      win.contentWindow.postMessage({ type: 'rewindTo', value: 10 }, "*")
     }
   document.querySelector("#play").addEventListener("click", handlePlay)
   document.querySelector("#pause").addEventListener("click", handlePause)
