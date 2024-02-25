@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns#" translate="no"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script>
+    const handlePlay = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'play' })
+    }
+    const handlePause = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'pause' })
+    }
+    const handleUnmute = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'toggleVolume', value: true })
+    }
+    const handleMute = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'toggleVolume', value: false })
+    }
+    const handleRewindTo = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'rewindTo', value: 10 })
+    }
+  </script>
 </head>
 <body>
 <h4>170x96</h4>
@@ -14,8 +36,17 @@
 <h4>369x208</h4>
 <iframe width="369" height="208" src="https://frontend-video-dev04.dev.dion.vc/embed/4820690b-015b-45b2-91f2-38a9d5cc8ae8" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
 
-<h4>371x209</h4>
-<iframe width="371" height="209" src="https://frontend-video-dev04.dev.dion.vc/embed/4820690b-015b-45b2-91f2-38a9d5cc8ae8" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
+<h4>371x209 autoPlay</h4>
+<iframe width="371" height="209" src="https://frontend-video-dev04.dev.dion.vc/embed/4820690b-015b-45b2-91f2-38a9d5cc8ae8?autoPlay=true" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
+<h4>371x209 start from 10</h4>
+<iframe width="371" height="209" src="https://frontend-video-dev04.dev.dion.vc/embed/4820690b-015b-45b2-91f2-38a9d5cc8ae8?startFrom=10" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
+
+<button onClick="handlePause()">pause</button>
+<button onClick="handlePlay()">play</button>
+<button onClick="handleMute()">mute</button>
+<button onClick="handleUnmute()">unmute</button>
+<button onClick="handleRewindTo()">rewindTo 10sec</button>
+<iframe id="test" width="371" height="209" src="https://frontend-video-dev04.dev.dion.vc/embed/4820690b-015b-45b2-91f2-38a9d5cc8ae8" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
 
 
 
