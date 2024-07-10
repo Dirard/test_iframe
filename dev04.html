@@ -21,8 +21,10 @@
 <button id="pause">pause</button>
 <button id="play">play</button>
 <button id="mute">mute</button>
-<button id="unmute" "="">unmute</button>
-<button id="rewindTo" "="">rewindTo 10sec</button>
+<button id="unmute">unmute</button>
+<button id="rewindTo">rewindTo 10sec</button>
+<button id="hideControls">hideControls</button>
+<button id="showControls">showControls</button>
 <iframe id="test" width="371" height="209" src="https://frontend-video-dev04.dev.dion.vc/embed/3fcd6191-c663-4910-b17b-e82db5aa40b8" title="DION Видео player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen=""></iframe>
 
 <script defer="">
@@ -46,11 +48,21 @@
       const win = document.querySelector("#test")
       win.contentWindow.postMessage({ type: 'rewindTo', value: 10 }, "*")
     }
+    const handleHideControls = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'hideControls' }, "*")
+    }
+    const handleShowControls = function() {
+      const win = document.querySelector("#test")
+      win.contentWindow.postMessage({ type: 'showControls' }, "*")
+    }
   document.querySelector("#play").addEventListener("click", handlePlay)
   document.querySelector("#pause").addEventListener("click", handlePause)
   document.querySelector("#mute").addEventListener("click", handleMute)
   document.querySelector("#unmute").addEventListener("click", handleUnmute)
   document.querySelector("#rewindTo").addEventListener("click", handleRewindTo)
+  document.querySelector("#hideControls").addEventListener("click", handleHideControls)
+  document.querySelector("#showControls").addEventListener("click", handleShowControls)
 </script>
 
 
